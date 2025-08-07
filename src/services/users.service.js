@@ -1,24 +1,20 @@
 const { User } = require('../models/User.model');
 
-const getAllUsers = async () => {
-  return await User.findAll();
+const getAllUsers = () => {
+  return User.findAll();
 };
 
-const getUserById = async (id) => {
-  return await User.findByPk(id);
+const getUserById = (id) => {
+  return User.findByPk(id);
 };
 
-const createUser = async (name) => {
-  const currentUsers = await User.findAll();
-  // const id = getId(currentUsers);
-
-  return await User.create({ name });
+const createUser = (name) => {
+  return User.create({ name });
 };
 
 const updateUser = async ({ id, name }) => {
   await User.update({ name }, { where: { id } });
-
-  return await getUserById(id);
+  return getUserById(id);
 };
 
 const deleteUser = async (id) => {

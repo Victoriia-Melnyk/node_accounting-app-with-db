@@ -27,21 +27,20 @@ const getAllExpenses = async ({ userId, from, to, categories }) => {
     };
   }
 
-  const expenses = await Expense.findAll({ where });
-  return expenses;
+  return Expense.findAll({ where });
 };
 
-const getExpenseById = async (id) => {
-  return await Expense.findByPk(id);
+const getExpenseById = (id) => {
+  return Expense.findByPk(id);
 };
 
-const createExpense = async (reqBody) => {
-  return await Expense.create(reqBody);
+const createExpense = (reqBody) => {
+  return Expense.create(reqBody);
 };
 
 const updateExpense = async (id, reqBody) => {
   await Expense.update({ ...reqBody }, { where: { id } });
-  return await getExpenseById(id);
+  return getExpenseById(id);
 };
 
 const deleteExpense = async (id) => {

@@ -29,7 +29,7 @@ const getOne = async (req, res) => {
 };
 
 const create = async (req, res) => {
-  const { userId, spentAt, title, amount, category } = req.body;
+  const { userId, spentAt, title, amount } = req.body;
 
   if (userId === undefined || !spentAt || !title || amount === undefined) {
     return res.sendStatus(400);
